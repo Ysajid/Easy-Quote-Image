@@ -12,8 +12,10 @@ function download(){
             canvas.toBlob(function(blob) { 
                 saveAs(blob, "image.png");
             });
-        }
-    }, allowTaint = true);
+        }, 
+        allowTaint:true,
+        logging:true
+    });
 
 }
 
