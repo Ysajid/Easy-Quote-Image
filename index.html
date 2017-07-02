@@ -1,10 +1,82 @@
 <html>
 
 <head>
+    <meta charset="utf-8"/>
+    <link href="styles.css" rel="stylesheet"/>
 </head>
 
 <body>
     <h2> Welcome to Easy Quote Image Maker </h2>
+    <div id="canvas">   
+        <textarea type="text" id="quote">
+        </textarea>
+    </div>
+    <div id="control">
+        <div id="color_blocks">
+            <a>
+                <div style="background:coral;"></div>
+            </a>
+            <a>
+                <div style="background:lightgoldenrodyellow;"></div>
+            </a>
+            <a>
+                <div style="background:#16191a;"></div>
+            </a>
+            <a>
+                <div style="background:bisque;"></div>
+            </a>
+            <a>
+                <div style="background:crimson;"></div>
+            </a>
+            <a>
+                <div style="background:coral;"></div>
+            </a>
+        </div>
+        <div id="images">
+            <a><img class="img-responsive" src="images/1.jpg" /></a>
+            <a><img class="img-responsive" src="images/2.jpg" /></a>
+            <a><img class="img-responsive" src="images/3.jpg" /></a>
+            <a><img class="img-responsive" src="images/4.jpg" /></a>
+            <a><img class="img-responsive" src="images/5.jpg" /></a>
+            <a><img class="img-responsive" src="images/6.jpg" /></a>
+        </div>
+        <!--<form id="url_form">-->
+            <!--<input id="image_url" type="text" placeholder="Drag and drop image here or provide image url">-->
+        <!--</form>-->
+        <div id="font-colors">
+            <p>Font Color</p>
+            <a>
+                <div style="background:#222222;"></div>
+            </a>
+            <a>
+                <div style="background:white;"></div>
+            </a>
+            <a>
+                <div style="background:gray;"></div>
+            </a>
+        </div>
+        <p  style="display:inline-block;">Font Size</p>
+        <div id="minus" onclick="changeFontSize(-1)">-</div>
+        <p style="display:inline-block;" id="font-size" >40</p>
+        <div id="plus" onclick="changeFontSize(1)">+</div>
+        <!--<div id="fonts">-->
+            <!--<p style="display:inline;">Select Font</p>-->
+            <!--<a>Kanit</a>-->
+            <!--<a>Ubuntu</a>-->
+        <!--</div>-->
+        <button onclick="download()" id="btn_download" > Download </button>
+    </div>
 </body>
+
+<script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" 
+    integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" 
+    crossorigin="anonymous"></script>
+<script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 
 </html>
