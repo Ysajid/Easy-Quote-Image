@@ -99,7 +99,7 @@ function fbShare() {
         onrendered: function(canvas) {
             // canvas is the final rendered <canvas> element
             canvas.toBlob(function(blob) {
-                imageFile = new File([blob], "Quote_image", {type: image, lastModified: Date.now()});
+                imageFile = new File([blob], "Quote_image", {type: 'image/png', lastModified: Date.now()});
 
                 FB.ui({
                     method: 'feed',
