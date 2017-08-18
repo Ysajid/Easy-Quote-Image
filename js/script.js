@@ -100,19 +100,20 @@ function fbShare() {
             // canvas is the final rendered <canvas> element
             canvas.toBlob(function(blob) {
                 imageFile = new File([blob], "Quote_image", {type: 'image/png', lastModified: Date.now()});
-
-                FB.ui({
-                    method: 'feed',
-                    name: 'asdasd',
-                    link: 'ysajid.github.io/Easy-Quote-Maker',
-                    picture: imageFile,
-                    caption: 'Easy-Quote-Maker',
-                    description: "",
-                    message: ""
-                }, function(response){
-                // Debug response (optional)
-                console.log(response);
-                });
+                FB.api(
+                '/me/feed',
+                'POST',
+                {
+                    "name":"Quote",
+                    "link":"https://ysajid.github.io/Easy-Quote-Image/",
+                    "picture": imageFile,
+                    "caption":"Easy-Quote-Image",
+                    "description":$("#quote").text()
+                },
+                function(response) {
+                    // Insert your code here
+                }
+                );
             });
         }, 
         allowTaint:true,
