@@ -1,6 +1,6 @@
 var canvas = document.getElementById("canvas");
 var quote = document.getElementById("quote");
-var IMAGE_SRC = "images"
+var IMAGE_SRC = "images";
 
 var fontSize = 40;
 
