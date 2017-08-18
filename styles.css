@@ -49,18 +49,18 @@ body {
 }
 
 
-#backgrounds {
+.backgrounds {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   height:120px;
 }
 
-#backgrounds li{
+.backgrounds li{
   display: inline-block;
 }
 
-#backgrounds img, #backgrounds div {
+.backgrounds img, .backgrounds div {
   display: inline-block;
   height:100px;
   width:100px;

@@ -4,15 +4,6 @@ var IMAGE_SRC = "images";
 
 var fontSize = 40;
 
-window.fbAsyncInit = function() {
-FB.init({
-    appId      : '472403993120622',
-    xfbml      : true,
-    version    : 'v2.10'
-});
-FB.AppEvents.logPageView();
-};
-
 function download(){
     html2canvas(canvas, {
         onrendered: function(canvas) {
@@ -30,12 +21,12 @@ function download(){
 
 // $("#avatar").
 
-$("#backgrounds img").click(function(){
+$(".backgrounds img").click(function(){
     console.log(this.src);
     canvas.style.backgroundImage = "url(" + this.src + ")";
 })
 
-$("#backgrounds div").click(function(){
+$(".backgrounds div").click(function(){
     canvas.style.backgroundImage = "";
     canvas.style.backgroundColor = $(this).css("background-color");
 })
