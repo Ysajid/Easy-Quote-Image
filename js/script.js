@@ -94,14 +94,28 @@ function changeFont(fontFamily) {
 };
 
 function fbShare() {
-    FB.ui({
-    method: 'share_open_graph',
-    action_type: 'og.likes',
-    action_properties: JSON.stringify({
-        object:'https://developers.facebook.com/docs/',
-    })
-    }, function(response){
-    // Debug response (optional)
-    console.log(response);
+    var imageFile;
+     html2canvas(canvas, {
+        onrendered: function(canvas) {
+            // canvas is the final rendered <canvas> element
+            canvas.toBlob(function(blob) {
+                imageFile = new File([blob], "Quote_image", {type: image, lastModified: Date.now()});
+
+                FB.ui({
+                    method: 'feed',
+                    name: 'asdasd',
+                    link: url_base + '/listen',
+                    picture: imageFile,
+                    caption: 'mywebsite.com',
+                    description: msg,
+                    message: msg
+                }, function(response){
+                // Debug response (optional)
+                console.log(response);
+                });
+            });
+        }, 
+        allowTaint:true,
+        logging:true
     });
 }
