@@ -1,76 +1,87 @@
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-h2 {
-    color : #16191a;
-    text-align: center;
-    padding: 16px;
+.container {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  width: 100% !important;
 }
 
 #canvas {
-    height: 600px;
-    width: 600px;
-    display: inline-block;
-    position: relative;
-    background: coral; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  position: relative;
+  padding-bottom: 50%;
+  background: coral;
+  background-size: cover;
 }
 
-#control {
-    display: inline-block;
+#avatar {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  height: 80px;
 }
 
 #quote {
-    border : none;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    background: none;
-    top: 50%;
-    transform: translate(0%, -50%);
-    font-size :40px;
-    resize: none;
-    color: white;
+  position: absolute;
+   padding: 32px; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  font-size :40px;
+  color: white;
+  text-shadow: rgba(0, 0, 0, .8) 0px 1px 4px;
+}
+
+#quote-input{
+  resize: vertical;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 
-#images img {
-  display:inline-block;
+#backgrounds {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height:120px;
+}
+
+#backgrounds li{
+  display: inline-block;
+}
+
+#backgrounds img, #backgrounds div {
+  display: inline-block;
   height:100px;
   width:100px;
   cursor: pointer;
-}
-
-#color_blocks {
-  margin: 8px;
-}
-
-#color_blocks div{
-  display:inline-block;
-  width: 25px;
-  height: 25px;
-  background: black;
-  cursor: pointer;
-  margin: -2px;
+  vertical-align: top;
 }
 
 #font-colors {
-  margin: 8px;
-}
-#font-colors div {
-  display:inline-block;
-  width: 25px;
-  height: 25px;
-  background: black;
-  cursor: pointer;
-  margin: -2px;
+  /* margin: 8px; */
 }
 
-#fonts a{
+#font-colors div { 
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu a{
+  font-size: 16px !important;
+  text-transform: none !important;
+}
+/* #fonts a{
   text-decoration: none !important;
   padding: 4px;
   color: black;
@@ -89,9 +100,6 @@ h2 {
   padding: 4px;
   text-align: center;
   cursor: pointer;
-}
+} */
 
-#plus:hover , #minus:hover {
-  background-color: #03b48d;
-  color: #fff;
-}
+

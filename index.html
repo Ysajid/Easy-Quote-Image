@@ -4,79 +4,121 @@
     <meta charset="utf-8"/>
     <title>Easy Quote Image Maker</title>
     <link href="styles.css" rel="stylesheet"/>
+    <link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Baloo+Da|Hind+Siliguri|Kaushan+Script|Lobster|Open+Sans|Oswald|Satisfy" rel="stylesheet">
 </head>
 
 <body>
-    <h2> Welcome to Easy Quote Image Maker </h2>
-    <div id="canvas">   
-        <textarea type="text" id="quote">
-        </textarea>
-    </div>
-    <div id="control">
-        <div id="color_blocks">
-            <a>
-                <div style="background:coral;"></div>
-            </a>
-            <a>
-                <div style="background:lightgoldenrodyellow;"></div>
-            </a>
-            <a>
-                <div style="background:#16191a;"></div>
-            </a>
-            <a>
-                <div style="background:bisque;"></div>
-            </a>
-            <a>
-                <div style="background:crimson;"></div>
-            </a>
-            <a>
-                <div style="background:coral;"></div>
-            </a>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="#">Easy Quote Image</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-2x fa-github"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="">
+            <div id="canvas" class="col-xs-6">
+                <p id="quote" class="text-center">
+                    Write Your Quote
+                </p>
+                <img id="avatar" class="img-responsive" src="" />
+            </div>
+            <div id="control" class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-header">
+                    </div>
+                    <div class="panel-body">
+                        <textarea id="quote-input" class="form-control" oninput="quoteInserted(this);" 
+                        placeholder="Write Your Quote..."></textarea></br>
+                        <h4 class="text-secondary">Select background...</h4> 
+                        <ul id="backgrounds" class="list-group">
+                            <li><a><div style="background:coral;"></div></a></li>
+                            <li><a><div style="background:lightgoldenrodyellow;"></div></a></li>
+                            <li><a><div style="background:#16191a;"></div></a></li>
+                            <li><a><div style="background:bisque;"></div></a></li>
+                            <li><a><div style="background:crimson;"></div></a></li>
+                            <li><a><div style="background:coral;"></div></a></li>
+                            <li><a><img class="img-responsive" src="images/1.jpg" /></a></li>
+                            <li><a><img class="img-responsive" src="images/2.jpg" /></a></li>
+                            <li><a><img class="img-responsive" src="images/3.jpg" /></a></li>
+                            <li><a><img class="img-responsive" src="images/4.jpg" /></a></li>
+                            <li><a><img class="img-responsive" src="images/5.jpg" /></a></li>
+                            <li><a><img class="img-responsive" src="images/6.jpg" /></a></li>
+                        </ul>
+                        <label class="btn btn-default">
+                            Upload Page Avater 
+                            <input type="file" id="avatar_upload" accept=".png,.jpg" name="page_avatar" onchange="avaterUpload(this)" hidden/>
+                        </label>
+                        <span id="filename"></span>
+                        <button class="btn btn-danger pull-right" id="close" style="display:none;" onclick="delAvater();">×</button>
+
+                        <!--<form id="url_form">-->
+                            <!--<input id="image_url" type="text" placeholder="Drag and drop image here or provide image url">-->
+                        <!--</form>-->
+                        </br></br>
+                        <h4 class="text-secondary"><i class="fa fa-cog"></i> Fonts</h4> 
+                        
+                        <div class="btn-toolbar" role="toolbar">
+                            <div  id="font-colors" class="btn-group">
+                                <a class="btn btn-default btn-sm"><div style="background:#222222;"></div></a>
+                                <a class="btn btn-default btn-sm"><div style="background:white;"></div></a>
+                                <a class="btn btn-default btn-sm"><div style="background:gray;"></div></a>
+                            </div>
+
+                            <div class="btn-group">
+                                <a class="btn btn-default btn-sm">
+                                    <i class="fa fa-minus"  onclick="changeFontSize(-1)"></i>
+                                    <span id="font-size"> 40 </span>
+                                    <i class="fa fa-plus"  onclick="changeFontSize(1)"></i>
+                                </a>
+                            </div>
+                            <div class="btn-group">
+                                <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-target="dropdown">
+                                    <span id="font-family">Open Sans</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" id="font-dropdown">
+                                    <li style="font-family: 'Open Sans', sans-serif;"><a onclick="changeFont(this)">Open Sans</a></li>
+                                    <li style="font-family: 'Oswald', sans-serif;"><a onclick="changeFont(this)">Oswald</a></li>
+                                    <li style="font-family: 'Lobster', cursive;"><a onclick="changeFont(this)">Lobster</a></li>
+                                    <li style="font-family: 'Amatic SC', cursive;"><a onclick="changeFont(this)">Amatic SC</a></li>
+                                    <li style="font-family: 'Satisfy', cursive;"><a onclick="changeFont(this)">Satisfy</a></li>
+                                    <li style="font-family: 'Kaushan Script', cursive;"><a onclick="changeFont(this)">Kaushan Script</a></li>
+                                    <li style="font-family: 'Hind Siliguri', sans-serif;"><a onclick="changeFont(this)">হিন্দ সিলিগুরী</a></li>
+                                    <li style="font-family: 'Baloo Da', cursive;"><a onclick="changeFont(this)">বালো দা</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" onclick="download()"><i class="fa fa-download"></i></button>
+                        <button class="btn btn-default" onclick="fbShare()"><i class="fa fa-facebook"></i></button>
+                       
+
+                     <div
+                        class="fb-like"
+                        data-share="true"
+                        data-width="450"
+                        data-show-faces="true">asda
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="images">
-            <a><img class="img-responsive" src="images/1.jpg" /></a>
-            <a><img class="img-responsive" src="images/2.jpg" /></a>
-            <a><img class="img-responsive" src="images/3.jpg" /></a>
-            <a><img class="img-responsive" src="images/4.jpg" /></a>
-            <a><img class="img-responsive" src="images/5.jpg" /></a>
-            <a><img class="img-responsive" src="images/6.jpg" /></a>
-        </div>
-        <!--<form id="url_form">-->
-            <!--<input id="image_url" type="text" placeholder="Drag and drop image here or provide image url">-->
-        <!--</form>-->
-        <div id="font-colors">
-            <p>Font Color</p>
-            <a>
-                <div style="background:#222222;"></div>
-            </a>
-            <a>
-                <div style="background:white;"></div>
-            </a>
-            <a>
-                <div style="background:gray;"></div>
-            </a>
-        </div>
-        <p  style="display:inline-block;">Font Size</p>
-        <div id="minus" onclick="changeFontSize(-1)">-</div>
-        <p style="display:inline-block;" id="font-size" >40</p>
-        <div id="plus" onclick="changeFontSize(1)">+</div>
-        <!--<div id="fonts">-->
-            <!--<p style="display:inline;">Select Font</p>-->
-            <!--<a>Kanit</a>-->
-            <!--<a>Ubuntu</a>-->
-        <!--</div>-->
-        <button onclick="download()" id="btn_download" > Download </button>
     </div>
 </body>
-<script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js" 
-    integrity="sha256-w6/1B0uwkpR3uX0YUw3k2zzHnq6xDNdVZHLIdz8xV6I=" 
-    crossorigin="anonymous"></script>
+<script src="js/html2canvas.js" ></script>
 <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 
 </html>
