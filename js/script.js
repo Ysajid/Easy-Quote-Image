@@ -104,11 +104,11 @@ function fbShare() {
                 FB.ui({
                     method: 'feed',
                     name: 'asdasd',
-                    link: url_base + '/listen',
+                    link: 'ysajid.github.io/Easy-Quote-Maker',
                     picture: imageFile,
-                    caption: 'mywebsite.com',
-                    description: msg,
-                    message: msg
+                    caption: 'Easy-Quote-Maker',
+                    description: "",
+                    message: ""
                 }, function(response){
                 // Debug response (optional)
                 console.log(response);
