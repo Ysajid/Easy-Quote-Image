@@ -13,14 +13,6 @@ FB.init({
 FB.AppEvents.logPageView();
 };
 
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
 function download(){
     html2canvas(canvas, {
         onrendered: function(canvas) {
@@ -92,31 +84,3 @@ function changeFont(fontFamily) {
     $("#quote").css("font-family", $(fontFamily).css("font-family"));
     $("#font-family").text($(fontFamily).text());
 };
-
-function fbShare() {
-    var imageFile;
-     html2canvas(canvas, {
-        onrendered: function(canvas) {
-            // canvas is the final rendered <canvas> element
-            canvas.toBlob(function(blob) {
-                imageFile = new File([blob], "Quote_image", {type: 'image/png', lastModified: Date.now()});
-                FB.api(
-                '/me/feed',
-                'POST',
-                {
-                    "name":"Quote",
-                    "link":"https://ysajid.github.io/Easy-Quote-Image/",
-                    "picture": imageFile,
-                    "caption":"Easy-Quote-Image",
-                    "description":$("#quote").text()
-                },
-                function(response) {
-                    // Insert your code here
-                }
-                );
-            });
-        }, 
-        allowTaint:true,
-        logging:true
-    });
-}
