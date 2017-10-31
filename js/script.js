@@ -65,6 +65,19 @@ function avaterUpload(input) {
     }
 };
 
+function customBackgroundUpload(input) {
+    var file    = input.files[0];
+    var reader  = new FileReader();
+
+    reader.onloadend = function () {
+        canvas.style.backgroundImage = "url(" + reader.result + ")";
+    }
+
+    if (file) {
+        reader.readAsDataURL(file); //reads the data as a URL
+    }
+};
+
 function delAvater() {
     document.getElementById("avatar").src = "";
     $("#filename").text("");

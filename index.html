@@ -37,7 +37,12 @@
                     <div class="panel-body">
                         <textarea id="quote-input" class="form-control" oninput="quoteInserted(this);" 
                         placeholder="Write Your Quote..."></textarea></br>
-                        <h4 class="text-secondary">Select background...</h4> 
+                        <h4 class="text-secondary">Select background...or 
+                            <label class="btn btn-default">
+                                Upload Your Own
+                                <input type="file" id="background_upload" accept=".png,.jpg" name="custom_background" onchange="customBackgroundUpload(this)" hidden/>
+                            </label>
+                        </h4> 
                         <ul class="list-group backgrounds">
                             <li><a><div style="background:#3498db;"></div></a></li>
                             <li><a><div style="background:#2c3e50;"></div></a></li>
