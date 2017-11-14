@@ -9,6 +9,11 @@
     <link href="https://bootswatch.com/3/sandstone/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Baloo+Da|Hind+Siliguri|Kaushan+Script|Lobster|Open+Sans|Oswald|Satisfy" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -37,48 +42,54 @@
                     <div class="panel-body">
                         <textarea id="quote-input" class="form-control" oninput="quoteInserted(this);" 
                         placeholder="Write Your Quote..."></textarea></br>
-                        <h4 class="text-secondary">Select background...or 
-                            <label class="btn btn-default">
-                                Upload Your Own
-                                <input type="file" id="background_upload" accept=".png,.jpg" name="custom_background" onchange="customBackgroundUpload(this)" hidden/>
-                            </label>
-                        </h4> 
-                        <ul class="list-group backgrounds">
-                            <li><a><div style="background:#3498db;"></div></a></li>
-                            <li><a><div style="background:#2c3e50;"></div></a></li>
-                            <li><a><div style="background:#16a085;"></div></a></li>
-                            <li><a><div style="background:#95a5a6;"></div></a></li>
-                            <li><a><div style="background:#e74c3c;"></div></a></li>
-                            <li><a><div style="background:#e67e22;"></div></a></li>
-                            <li><a><div style="background:#f39c12;"></div></a></li>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#colors">Colors</a></li>
+                            <li><a data-toggle="tab" href="#images">Images</a>
                         </ul>
-                        <ul class="list-group backgrounds">
-                            <li><a><img class="img-responsive" src="images/1.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/2.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/3.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/4.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/5.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/6.jpg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/7.jpeg" /></a></li>
-                            <li><a><img class="img-responsive" src="images/8.jpeg" /></a></li>
-                        </ul>
-                        <label class="btn btn-default">
-                            Upload Page Avater 
-                            <input type="file" id="avatar_upload" accept=".png,.jpg" name="page_avatar" onchange="avaterUpload(this)" hidden/>
-                        </label>
-                        <span id="filename"></span>
-                        <button class="btn btn-danger pull-right" id="close" style="display:none;" onclick="delAvater();">×</button>
-
-                        <!--<form id="url_form">-->
-                            <!--<input id="image_url" type="text" placeholder="Drag and drop image here or provide image url">-->
-                        <!--</form>-->
-                        </br></br>
+                        <div class="tab-content">
+                            <div id="colors" class="tab-pane fade in active">
+                                <ul class="list-group backgrounds">
+                                    <li><a><div style="background:#222222;"></div></a></li>
+                                    <li><a><div style="background:#eeeeee;"></div></a></li>
+                                    <li><a><div style="background:#3498db;"></div></a></li>
+                                    <li><a><div style="background:#2c3e50;"></div></a></li>
+                                    <li><a><div style="background:#16a085;"></div></a></li>
+                                    <li><a><div style="background:#95a5a6;"></div></a></li>
+                                    <li><a><div style="background:#e74c3c;"></div></a></li>
+                                    <li><a><div style="background:#e67e22;"></div></a></li>
+                                    <li><a><div style="background:#f39c12;"></div></a></li>
+                                </ul>
+                            </div>
+                            <div id="images" class="tab-pane fade">
+                                <ul class="list-group backgrounds">                      
+                                    <li><a><img class="img-responsive" src="images/1.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/2.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/3.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/4.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/5.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/6.jpg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/7.jpeg" /></a></li>
+                                    <li><a><img class="img-responsive" src="images/8.jpeg" /></a></li>
+                                    <li>
+                                        <label id="image_upload" class="text-center">
+                                            <div><i class="fa fa-4x fa-plus"></i></div>
+                                            <input type="file" id="background_upload" accept=".png,.jpg" name="custom_background" onchange="customBackgroundUpload(this)" hidden/>
+                                        </label>
+                                    </li>                      
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control" id="image_url" type="text" placeholder="or provide image url" onchange="customOnlineBackgroundUpload(this)">
+                        
+                        
+                        </br>
                         <h4 class="text-secondary"><i class="fa fa-cog"></i> Fonts</h4> 
                         
                         <div class="btn-toolbar" role="toolbar">
                             <div  id="font-colors" class="btn-group">
-                                <a class="btn btn-default btn-sm"><div style="background:#2c3e50;"></div></a>
+                                <a class="btn btn-default btn-sm"><div style="background:#222222;"></div></a>
                                 <a class="btn btn-default btn-sm"><div style="background:white;"></div></a>
+                                <a class="btn btn-default btn-sm"><div style="background:#2c3e50;"></div></a>
                                 <a class="btn btn-default btn-sm"><div style="background:#e74c3c;"></div></a>
                                 <a class="btn btn-default btn-sm"><div style="background:#e67e22;"></div></a>
                                 <a class="btn btn-default btn-sm"><div style="background:#3498db;"></div></a>
@@ -108,6 +119,15 @@
                                 </ul>
                             </div>
                         </div>
+                        </br>
+
+                        <label class="btn btn-default">
+                            Upload Page Avater 
+                            <input type="file" id="avatar_upload" accept=".png,.jpg" name="page_avatar" onchange="avaterUpload(this)" hidden/>
+                        </label>
+                        <span id="filename"></span>
+                        <button class="btn btn-danger pull-right" id="close" style="display:none;" onclick="delAvater();">×</button>
+    
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn-default btn-block" onclick="download()"><i class="fa fa-download"></i></button>
@@ -119,11 +139,6 @@
 </body>
 <script src="js/html2canvas.js" type="text/javascript"></script>
 <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
-<script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/script.js" type="text/javascript"></script>
     
 </html>

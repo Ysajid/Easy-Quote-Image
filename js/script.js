@@ -45,7 +45,7 @@ function changeFontSize(mode) {
 
 function quoteInserted(x) {
     var re = /\n/g;
-    $("#quote").html(x.value.replace(re, '</br>'));
+    $("#quote").html(x.value.replace(re, '</br>').replace("<script>", ""));
 }
 
 function avaterUpload(input) {
@@ -77,6 +77,12 @@ function customBackgroundUpload(input) {
         reader.readAsDataURL(file); //reads the data as a URL
     }
 };
+
+function customOnlineBackgroundUpload(input) {
+    url = input.value;
+    console.log(url);
+    canvas.style.backgroundImage = "url(" + url + ")";
+}
 
 function delAvater() {
     document.getElementById("avatar").src = "";
